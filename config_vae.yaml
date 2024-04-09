@@ -1,0 +1,6 @@
+epochs: 2000
+batch_size: 500
+lr: 0.0001
+d_updates: 1
+plot_freq: 10
+hidden_size: 256

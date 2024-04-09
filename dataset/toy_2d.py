@@ -25,7 +25,7 @@ class Toy_Dataset(Dataset):
         return single_pt
 
 
-def load_toy_data(data_name, data_size=100000):
+def load_toy_data(data_name, data_size=10000):
     assert data_name in DATA_NAME, "Not a proper data name"
     if data_name == '25gaussians':
         centers = [-1, -.5, 0, .5, 1]
@@ -33,10 +33,10 @@ def load_toy_data(data_name, data_size=100000):
         for i in range(data_size // 25):
             for x in centers:
                 for y in centers:
-                    point = np.random.randn(2) * 0.025
+                    point = np.random.randn(2) * 0.01
                     point += [x, y]
                     dataset.append(point)
-        dataset = np.array(dataset, dtype='float32') * 2.828
+        dataset = np.array(dataset, dtype='float32')*2.828
 
     elif data_name == '8gaussians':
         centers = [(1, 0), (-1, 0), (0, 1), (0, -1),
@@ -46,11 +46,11 @@ def load_toy_data(data_name, data_size=100000):
                    (-1. / np.sqrt(2), -1. / np.sqrt(2))]
         dataset = []
         for i in range(data_size):
-            point = np.random.randn(2) * 0.025
+            point = np.random.randn(2) * 0.01
             center = random.choice(centers)
             point += center
             dataset.append(point)
-        dataset = np.array(dataset, dtype='float32') * 2.828
+        dataset = np.array(dataset, dtype='float32')*2.828
 
     elif data_name == 'swissroll':
         dataset = sklearn.datasets.make_swiss_roll(n_samples=data_size, noise=0.1)[0]
@@ -66,7 +66,7 @@ def load_toy_data(data_name, data_size=100000):
 
     elif data_name == "circles":
         data = sklearn.datasets.make_circles(n_samples=data_size, factor=.5, noise=0.025)[0]
-        dataset = data.astype("float32") * 2.828
+        dataset = data.astype("float32") 
 
     elif data_name =="2sines":
         x = (np.random.rand(data_size) - 0.5) * 2 * np.pi
