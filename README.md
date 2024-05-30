@@ -5,5 +5,5 @@ This is an comparison of different deep generative model for 2D samples generati
 ## Results
 | Model     | GAN | VAE | Diffusion |
 | ----------- | ----------- |----------- |----------- |
-| 25 Gaussian      | | | |
+| 25 Gaussian      | <img src="log/img/GAN.gif"  width="100" height="60"  />| | |
 
