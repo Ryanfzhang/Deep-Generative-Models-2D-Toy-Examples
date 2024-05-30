@@ -14,7 +14,7 @@ class DDPM(object):
         self.alpha_hat = torch.cumprod(self.alpha, dim=0)
         model = ToyNet(self.config)
         self.model = model.to(self.device)
-        self.alpha_torch = torch.tensor(self.alpha_torch).float().to(self.device).unsqueeze(1)
+        self.alpha_torch = torch.tensor(self.alpha_hat).float().to(self.device).unsqueeze(1)
         self.optimizer = torch.optim.RMSprop(self.model.parameters(), lr = self.config['lr'])
 
     def forward(self, x, set_t=-1):
